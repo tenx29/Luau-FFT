@@ -3,7 +3,7 @@
   cmath.lua
   May 10, 2022
 
-  Licensed under the Mozilla Public Lececnse Version 2.0
+  Licensed under the Mozilla Public License Version 2.0
 ]]
 
 Complex = {}
