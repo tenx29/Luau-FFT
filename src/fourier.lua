@@ -24,6 +24,12 @@ function transform.dft(samples, maxFrequency, getAbsolute)
 		table.insert(spectrum, f, 1/math.sqrt(N) * sum)
 	end
 	
+	if getAbsolute then
+		table.foreach(spectrum, function(f, v)
+			spectrum[f] = v:abs()
+		end)
+	end
+	
 	return spectrum
 end
 
@@ -44,6 +50,12 @@ function transform.fft(samples, maxFrequency, getAbsolute)
 			sum += samples[2*n+1] * cmath.new(0, (-2*math.pi*f*(2*n+1))/N):exp()
 		end
 		table.insert(spectrum, f, 1/math.sqrt(N) * sum)
+	end
+	
+	if getAbsolute then
+		table.foreach(spectrum, function(f, v)
+			spectrum[f] = v:abs()
+		end)
 	end
 
 	return spectrum
