@@ -314,15 +314,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#table-dfttable-samples-integer-maxfrequency-bool-getabsolute" class="md-nav__link">
-    table dft(table samples, integer maxFrequency?, bool getAbsolute?)
+  <a href="#table-dfttable-samples-integer-maxfrequency-boolean-getabsolute" class="md-nav__link">
+    table dft(table samples, integer maxFrequency?, boolean getAbsolute?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#table-ffttable-samples-integer-maxfrequency-bool-getabsolute" class="md-nav__link">
-    table fft(table samples, integer maxFrequency?, bool getAbsolute?)
+  <a href="#table-ffttable-samples-boolean-ignoreconjugate-boolean-getabsolute" class="md-nav__link">
+    table fft(table samples, boolean ignoreConjugate?, boolean getAbsolute?)
   </a>
   
 </li>
@@ -389,15 +389,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#table-dfttable-samples-integer-maxfrequency-bool-getabsolute" class="md-nav__link">
-    table dft(table samples, integer maxFrequency?, bool getAbsolute?)
+  <a href="#table-dfttable-samples-integer-maxfrequency-boolean-getabsolute" class="md-nav__link">
+    table dft(table samples, integer maxFrequency?, boolean getAbsolute?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#table-ffttable-samples-integer-maxfrequency-bool-getabsolute" class="md-nav__link">
-    table fft(table samples, integer maxFrequency?, bool getAbsolute?)
+  <a href="#table-ffttable-samples-boolean-ignoreconjugate-boolean-getabsolute" class="md-nav__link">
+    table fft(table samples, boolean ignoreConjugate?, boolean getAbsolute?)
   </a>
   
 </li>
@@ -461,19 +461,27 @@ where</p>
 </ul>
 <p>The result is a fairly good approximation of the input signal's Fourier transform which is good enough for most purposes.</p>
 <h2 id="functions">Functions</h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The tables returned by <strong><a href="#tablehttpsdeveloperrobloxcomen-usarticlestable-dfttablehttpsdeveloperrobloxcomen-usarticlestable-span-style&quot;color-grey&quot;samplesspan-integerhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style&quot;color-grey&quot;maxfrequencyspan-booleanhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style&quot;color-grey&quot;getabsolutespan">dft</a></strong> and <strong><a href="#tablehttpsdeveloperrobloxcomen-usarticlestable-ffttablehttpsdeveloperrobloxcomen-usarticlestable-span-style&quot;color-grey&quot;samplesspan-booleanhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style&quot;color-grey&quot;ignoreconjugatespan-booleanhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style&quot;color-grey&quot;getabsolutespan">fft</a></strong> have the DC term of the Fourier transform at an index of 0. Other values are indexed normally by frequency.</p>
+</div>
 <hr />
-<h3 id="table-dfttable-samples-integer-maxfrequency-bool-getabsolute"><a href="https://developer.roblox.com/en-us/articles/Table">table</a> dft(<a href="https://developer.roblox.com/en-us/articles/Table">table</a> <em><span style="color: grey">samples</span></em>, <a href="https://developer.roblox.com/en-us/articles/Numbers">integer</a> <em><span style="color: grey">maxFrequency?</span></em>, <a href="https://developer.roblox.com/en-us/articles/Numbers">bool</a> <em><span style="color: grey">getAbsolute?</span></em>)</h3>
-<p>Returns the discrete Fourier transform of the sample list <em><span style="color: grey">samples</span></em>. All samples must be real or complex numbers. The <em><span style="color: grey">maxFrequency</span></em> determines the maximum frequency calculated by the DFT algorithm. If <em><span style="color: grey">getAbsolute</span></em> is <code>true</code>, the complex values in the result table are converted into real numbers based on their magnitudes.</p>
+<h3 id="table-dfttable-samples-integer-maxfrequency-boolean-getabsolute"><a href="https://developer.roblox.com/en-us/articles/Table">table</a> dft(<a href="https://developer.roblox.com/en-us/articles/Table">table</a> <em><span style="color: grey">samples</span></em>, <a href="https://developer.roblox.com/en-us/articles/Numbers">integer</a> <em><span style="color: grey">maxFrequency?</span></em>, <a href="https://developer.roblox.com/en-us/articles/Numbers">boolean</a> <em><span style="color: grey">getAbsolute?</span></em>)</h3>
+<p>Returns the discrete Fourier transform of the sample list <em><span style="color: grey">samples</span></em>. All samples must be real or complex numbers. The <em><span style="color: grey">maxFrequency</span></em> determines the maximum frequency calculated by the DFT algorithm. (<span class="arithmatex">\(N/2\)</span> by default, where <span class="arithmatex">\(N\)</span> is the amount of samples) If <em><span style="color: grey">getAbsolute</span></em> is <code>true</code>, the complex values in the result table are converted into real numbers based on their magnitudes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you need the conjugate data to be included in the result, set <em><span style="color: grey">maxFrequency</span></em> to the amount of samples.</p>
+</div>
 <div class="admonition danger">
 <p class="admonition-title">Performance notice</p>
 <p>Discrete Fourier transform has a time complexity of <span class="arithmatex">\(n^2\)</span>, which means calculating the DFT of large input sample tables may be slow.</p>
 </div>
 <hr />
-<h3 id="table-ffttable-samples-integer-maxfrequency-bool-getabsolute"><a href="https://developer.roblox.com/en-us/articles/Table">table</a> fft(<a href="https://developer.roblox.com/en-us/articles/Table">table</a> <em><span style="color: grey">samples</span></em>, <a href="https://developer.roblox.com/en-us/articles/Numbers">integer</a> <em><span style="color: grey">maxFrequency?</span></em>, <a href="https://developer.roblox.com/en-us/articles/Numbers">bool</a> <em><span style="color: grey">getAbsolute?</span></em>)</h3>
-<p>Returns the fast Fourier transform of the sample list <em><span style="color: grey">samples</span></em>. Returns a result similar to DFT, but is meant to be a slightly faster algorithm.</p>
+<h3 id="table-ffttable-samples-boolean-ignoreconjugate-boolean-getabsolute"><a href="https://developer.roblox.com/en-us/articles/Table">table</a> fft(<a href="https://developer.roblox.com/en-us/articles/Table">table</a> <em><span style="color: grey">samples</span></em>, <a href="https://developer.roblox.com/en-us/articles/Numbers">boolean</a> <em><span style="color: grey">ignoreConjugate?</span></em>, <a href="https://developer.roblox.com/en-us/articles/Numbers">boolean</a> <em><span style="color: grey">getAbsolute?</span></em>)</h3>
+<p>Returns the fast Fourier transform of the sample list <em><span style="color: grey">samples</span></em> using the <a href="https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm">Cooley-Tukey FFT algorithm</a>. Returns a result similar to DFT, but is a faster algorithm and is therefore more suitable for larger data sets. If <em><span style="color: grey">ignoreConjugate</span></em> is <code>true</code>, the conjugate data will be automatically cut off from the spectrum. If <em><span style="color: grey">getAbsolute</span></em> is <code>true</code>, the FFT will automatically be converted into its real counterpart similar to <a href="#tablehttpsdeveloperrobloxcomen-usarticlestable-dfttablehttpsdeveloperrobloxcomen-usarticlestable-span-style&quot;color-grey&quot;samplesspan-integerhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style&quot;color-grey&quot;maxfrequencyspan-booleanhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style&quot;color-grey&quot;getabsolutespan">dft</a>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Performance notice</p>
-<p>Fast Fourier transform has a time complexity of <span class="arithmatex">\(n \log{n}\)</span>, which means calculating the DFT of large input sample tables may be slow.</p>
+<p>Fast Fourier transform has a time complexity of <span class="arithmatex">\(n \log{n}\)</span>, which means calculating the FFT of extremely large input sample tables may be slow.</p>
 </div>
 <hr />
 
