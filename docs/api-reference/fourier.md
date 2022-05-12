@@ -37,20 +37,28 @@ where
 The result is a fairly good approximation of the input signal's Fourier transform which is good enough for most purposes.
 
 ## Functions
+
+!!! important
+    The tables returned by **[dft](#tablehttpsdeveloperrobloxcomen-usarticlestable-dfttablehttpsdeveloperrobloxcomen-usarticlestable-span-style"color-grey"samplesspan-integerhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style"color-grey"maxfrequencyspan-booleanhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style"color-grey"getabsolutespan)** and **[fft](#tablehttpsdeveloperrobloxcomen-usarticlestable-ffttablehttpsdeveloperrobloxcomen-usarticlestable-span-style"color-grey"samplesspan-booleanhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style"color-grey"ignoreconjugatespan-booleanhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style"color-grey"getabsolutespan)** have the DC term of the Fourier transform at an index of 0. Other values are indexed normally by frequency.
+
 ---
 
-### [table](https://developer.roblox.com/en-us/articles/Table) dft([table](https://developer.roblox.com/en-us/articles/Table) *<span style="color: grey">samples</span>*, [integer](https://developer.roblox.com/en-us/articles/Numbers) *<span style="color: grey">maxFrequency?</span>*, [bool](https://developer.roblox.com/en-us/articles/Numbers) *<span style="color: grey">getAbsolute?</span>*)
+### [table](https://developer.roblox.com/en-us/articles/Table) dft([table](https://developer.roblox.com/en-us/articles/Table) *<span style="color: grey">samples</span>*, [integer](https://developer.roblox.com/en-us/articles/Numbers) *<span style="color: grey">maxFrequency?</span>*, [boolean](https://developer.roblox.com/en-us/articles/Numbers) *<span style="color: grey">getAbsolute?</span>*)
 
-Returns the discrete Fourier transform of the sample list *<span style="color: grey">samples</span>*. All samples must be real or complex numbers. The *<span style="color: grey">maxFrequency</span>* determines the maximum frequency calculated by the DFT algorithm. If *<span style="color: grey">getAbsolute</span>* is `true`, the complex values in the result table are converted into real numbers based on their magnitudes.
+Returns the discrete Fourier transform of the sample list *<span style="color: grey">samples</span>*. All samples must be real or complex numbers. The *<span style="color: grey">maxFrequency</span>* determines the maximum frequency calculated by the DFT algorithm. ($N/2$ by default, where $N$ is the amount of samples) If *<span style="color: grey">getAbsolute</span>* is `true`, the complex values in the result table are converted into real numbers based on their magnitudes.
+
+!!! note
+    If you need the conjugate data to be included in the result, set *<span style="color: grey">maxFrequency</span>* to the amount of samples.
+
 !!! danger "Performance notice"
     Discrete Fourier transform has a time complexity of $n^2$, which means calculating the DFT of large input sample tables may be slow.
 
 ---
 
-### [table](https://developer.roblox.com/en-us/articles/Table) fft([table](https://developer.roblox.com/en-us/articles/Table) *<span style="color: grey">samples</span>*, [integer](https://developer.roblox.com/en-us/articles/Numbers) *<span style="color: grey">maxFrequency?</span>*, [bool](https://developer.roblox.com/en-us/articles/Numbers) *<span style="color: grey">getAbsolute?</span>*)
+### [table](https://developer.roblox.com/en-us/articles/Table) fft([table](https://developer.roblox.com/en-us/articles/Table) *<span style="color: grey">samples</span>*, [boolean](https://developer.roblox.com/en-us/articles/Numbers) *<span style="color: grey">ignoreConjugate?</span>*, [boolean](https://developer.roblox.com/en-us/articles/Numbers) *<span style="color: grey">getAbsolute?</span>*)
 
-Returns the fast Fourier transform of the sample list *<span style="color: grey">samples</span>*. Returns a result similar to DFT, but is meant to be a slightly faster algorithm.
+Returns the fast Fourier transform of the sample list *<span style="color: grey">samples</span>* using the [Cooley-Tukey FFT algorithm](https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm). Returns a result similar to DFT, but is a faster algorithm and is therefore more suitable for larger data sets. If *<span style="color: grey">ignoreConjugate</span>* is `true`, the conjugate data will be automatically cut off from the spectrum. If *<span style="color: grey">getAbsolute</span>* is `true`, the FFT will automatically be converted into its real counterpart similar to [dft](#tablehttpsdeveloperrobloxcomen-usarticlestable-dfttablehttpsdeveloperrobloxcomen-usarticlestable-span-style"color-grey"samplesspan-integerhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style"color-grey"maxfrequencyspan-booleanhttpsdeveloperrobloxcomen-usarticlesnumbers-span-style"color-grey"getabsolutespan).
 !!! danger "Performance notice"
-    Fast Fourier transform has a time complexity of $n \log{n}$, which means calculating the DFT of large input sample tables may be slow.
+    Fast Fourier transform has a time complexity of $n \log{n}$, which means calculating the FFT of extremely large input sample tables may be slow.
 
 ---

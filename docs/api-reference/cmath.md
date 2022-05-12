@@ -2,7 +2,7 @@
 
 cmath is a class used for calculations using complex numbers. This module is necessary when calculating Fourier transforms, but it can be used for a lot of other purposes as well.
 !!! warning "Required by another script"
-    This module must have the same Parent as the [Fourier module](fourier.md).
+    This module must have the same Parent as the **[Fourier module](fourier.md)**.
 
 <br><br>
 
@@ -13,7 +13,7 @@ cmath is a class used for calculations using complex numbers. This module is nec
 Creates a new Complex Number object. *<span style="color: grey">real</span>* is the real component and *<span style="color: grey">imag</span>* is the imaginary component.
 
 ---
-### [ComplexNumber](cmath.md) cmath.new([dict](https://developer.roblox.com/en-us/articles/Table#dictionaries) *<span style="color: grey">{[float](https://developer.roblox.com/en-us/articles/Numbers) Real?, [float](https://developer.roblox.com/en-us/articles/Numbers) Imag?}</span>*)
+### [ComplexNumber](cmath.md) cmath.fromDict([dict](https://developer.roblox.com/en-us/articles/Table#dictionaries) *<span style="color: grey">{[float](https://developer.roblox.com/en-us/articles/Numbers) Real?, [float](https://developer.roblox.com/en-us/articles/Numbers) Imag?}</span>*)
 
 Creates a new Complex Number object using a dictionary instead of two separate arguments.
 
